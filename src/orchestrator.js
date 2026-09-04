@@ -26,7 +26,7 @@ if (process.env.FFMPEG_PATH && !process.env.PATH?.includes(process.env.FFMPEG_PA
  */
 export async function runHyperframesGate() {
   try {
-    const { stdout, stderr } = await execAsync("npx hyperframes check . --json", {
+    const { stdout, stderr } = await execAsync("npx hyperframes check . --json --timeout=30000", {
       cwd: process.cwd(),
       timeout: 120000,
       env: process.env

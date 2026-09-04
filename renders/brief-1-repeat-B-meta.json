@@ -2,12 +2,12 @@
   "jobId": "brief-1-repeat-B",
   "brief": "Create a high-energy 12-second widescreen promo for CodeStream AI development platform highlighting instant review and 10x developer velocity.",
   "seed": 42,
-  "totalDurationMs": 59861,
+  "totalDurationMs": 43563,
   "stageTimings": {
     "planningMs": 1,
     "imageResolutionMs": 0,
-    "compositionAndGateMs": 19881,
-    "renderMs": 39979
+    "compositionAndGateMs": 13804,
+    "renderMs": 29757
   },
   "plan": {
     "schemaVersion": "1.1.0",
@@ -87,9 +87,9 @@
   },
   "output": {
     "mp4Path": "renders/brief-1-repeat-B.mp4",
-    "sizeBytes": 800656,
+    "sizeBytes": 777425,
     "durationSeconds": 12,
     "resolution": "1920x1080"
   },
-  "completedAt": "2026-09-04T01:20:01.994Z"
+  "completedAt": "2026-09-04T05:07:27.886Z"
 }

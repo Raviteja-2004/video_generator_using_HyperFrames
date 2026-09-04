@@ -2,12 +2,12 @@
   "jobId": "brief-2-e2e",
   "brief": "Create a 15-second vertical 9:16 mobile app launch promo for PulseFit workout companion showing a sleek heart rate tracking dashboard.",
   "seed": 42,
-  "totalDurationMs": 62270,
+  "totalDurationMs": 61596,
   "stageTimings": {
     "planningMs": 2,
     "imageResolutionMs": 0,
-    "compositionAndGateMs": 28381,
-    "renderMs": 33887
+    "compositionAndGateMs": 27951,
+    "renderMs": 33643
   },
   "plan": {
     "schemaVersion": "1.1.0",
@@ -90,9 +90,9 @@
   },
   "output": {
     "mp4Path": "renders/brief-2-e2e.mp4",
-    "sizeBytes": 1031690,
+    "sizeBytes": 989279,
     "durationSeconds": 15,
     "resolution": "1080x1920"
   },
-  "completedAt": "2026-09-04T01:16:56.517Z"
+  "completedAt": "2026-09-04T05:04:24.662Z"
 }

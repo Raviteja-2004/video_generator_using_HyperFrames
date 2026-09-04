@@ -2,12 +2,12 @@
   "jobId": "brief-3-e2e",
   "brief": "Create a 9-second widescreen video introducing DevPulse real-time cloud monitoring with 3 scenes.",
   "seed": 42,
-  "totalDurationMs": 61714,
+  "totalDurationMs": 51053,
   "stageTimings": {
     "planningMs": 1,
     "imageResolutionMs": 0,
-    "compositionAndGateMs": 23579,
-    "renderMs": 38133
+    "compositionAndGateMs": 12719,
+    "renderMs": 38333
   },
   "plan": {
     "schemaVersion": "1.1.0",
@@ -72,9 +72,9 @@
   },
   "output": {
     "mp4Path": "renders/brief-3-e2e.mp4",
-    "sizeBytes": 570687,
+    "sizeBytes": 550580,
     "durationSeconds": 9,
     "resolution": "1920x1080"
   },
-  "completedAt": "2026-09-04T01:17:58.232Z"
+  "completedAt": "2026-09-04T05:05:15.718Z"
 }
