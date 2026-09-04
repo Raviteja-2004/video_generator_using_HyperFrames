@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "1.1.0",
+  "title": "PulseFit Mobile Promo",
+  "aspectRatio": "9:16",
+  "totalDuration": 15,
+  "palette": {
+    "background": "#0f172a",
+    "surface": "#1e293b",
+    "primary": "#10b981",
+    "text": "#ffffff",
+    "subtext": "#94a3b8"
+  },
+  "scenes": [
+    {
+      "id": "scene-1",
+      "template": "title",
+      "purpose": "hook",
+      "visualEmphasis": "high",
+      "textDensity": "low",
+      "duration": 3,
+      "motionIntent": "scale-up",
+      "heading": "PulseFit",
+      "subheading": "Your Ultimate Workout Companion"
+    },
+    {
+      "id": "scene-2",
+      "template": "image-hero",
+      "purpose": "feature-presentation",
+      "visualEmphasis": "high",
+      "textDensity": "low",
+      "duration": 4,
+      "motionIntent": "counter-zoom",
+      "heading": "Track Every Heartbeat",
+      "imageSlot": {
+        "prompt": "Sleek mobile app UI dashboard showing real-time heart rate tracking with a glowing neon emerald green wave graph on a dark slate background",
+        "style": "modern vector flat minimalist illustration neon dark theme",
+        "aspectRatio": "1:1",
+        "required": true
+      }
+    },
+    {
+      "id": "scene-3",
+      "template": "feature-callout",
+      "purpose": "feature-presentation",
+      "visualEmphasis": "medium",
+      "textDensity": "medium",
+      "duration": 5,
+      "motionIntent": "stagger-reveal",
+      "heading": "Real-Time Coaching",
+      "features": [
+        "Adaptive Workouts",
+        "Form Correction",
+        "Live Pace Guidance"
+      ]
+    },
+    {
+      "id": "scene-4",
+      "template": "cta",
+      "purpose": "call-to-action",
+      "visualEmphasis": "high",
+      "textDensity": "low",
+      "duration": 3,
+      "motionIntent": "slide-up",
+      "heading": "Elevate Your Training",
+      "ctaText": "Download on iOS & Android"
+    }
+  ]
+}

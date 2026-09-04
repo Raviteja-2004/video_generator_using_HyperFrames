@@ -1,0 +1,98 @@
+{
+  "jobId": "brief-2-e2e",
+  "brief": "Create a 15-second vertical 9:16 mobile app launch promo for PulseFit workout companion showing a sleek heart rate tracking dashboard.",
+  "seed": 42,
+  "totalDurationMs": 62270,
+  "stageTimings": {
+    "planningMs": 2,
+    "imageResolutionMs": 0,
+    "compositionAndGateMs": 28381,
+    "renderMs": 33887
+  },
+  "plan": {
+    "schemaVersion": "1.1.0",
+    "title": "PulseFit App Launch",
+    "aspectRatio": "9:16",
+    "totalDuration": 15,
+    "palette": {
+      "background": "#09090b",
+      "surface": "#18181b",
+      "primary": "#f43f5e",
+      "text": "#ffffff",
+      "subtext": "#a1a1aa"
+    },
+    "scenes": [
+      {
+        "id": "scene-1",
+        "template": "title",
+        "purpose": "hook",
+        "visualEmphasis": "high",
+        "textDensity": "low",
+        "duration": 3,
+        "motionIntent": "scale-up",
+        "heading": "PulseFit",
+        "subheading": "Your Ultimate Workout Companion"
+      },
+      {
+        "id": "scene-2",
+        "template": "image-hero",
+        "purpose": "feature-presentation",
+        "visualEmphasis": "high",
+        "textDensity": "low",
+        "duration": 5,
+        "motionIntent": "counter-zoom",
+        "heading": "Sleek Heart Rate Tracking",
+        "imageSlot": {
+          "prompt": "A sleek mobile app dashboard showing real-time heart rate tracking with vibrant neon graphs and metrics on a dark background, modern UI design",
+          "style": "modern vector flat minimalist illustration neon dark theme",
+          "aspectRatio": "9:16",
+          "required": true
+        }
+      },
+      {
+        "id": "scene-3",
+        "template": "feature-callout",
+        "purpose": "feature-presentation",
+        "visualEmphasis": "medium",
+        "textDensity": "medium",
+        "duration": 4,
+        "motionIntent": "stagger-reveal",
+        "heading": "Train Smarter",
+        "features": [
+          "Real-Time Metrics",
+          "Personalized Goals",
+          "Seamless Design"
+        ]
+      },
+      {
+        "id": "scene-4",
+        "template": "cta",
+        "purpose": "call-to-action",
+        "visualEmphasis": "high",
+        "textDensity": "low",
+        "duration": 3,
+        "motionIntent": "slide-up",
+        "heading": "Elevate Your Workout",
+        "ctaText": "Download Now"
+      }
+    ]
+  },
+  "resolvedImages": {
+    "scene-2": "assets/images/27e14a87253d3b46d4d6c1863dffff90bc71e8fa1e328513a82fa70fea5cf82a.png"
+  },
+  "repairCount": 0,
+  "gateOk": true,
+  "gateDetails": {
+    "lintOk": true,
+    "runtimeOk": true,
+    "layoutOk": true,
+    "contrastOk": true
+  },
+  "output": {
+    "mp4Path": "renders/brief-2-e2e.mp4",
+    "sizeBytes": 1031690,
+    "durationSeconds": 15,
+    "resolution": "1080x1920"
+  },
+  "completedAt": "2026-09-04T01:16:56.517Z"
+}

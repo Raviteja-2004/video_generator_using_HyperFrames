@@ -1,0 +1,11 @@
+{
+  "cacheKey": "45dcdfdf0b51351b7434cd1a4c873a4686b49e0d704534b7e683b25ed8dfcf90",
+  "sceneId": "scene-retry",
+  "prompt": "Retry test graphic",
+  "style": "dark",
+  "model": "gpt-image-2",
+  "seed": 200,
+  "assetPath": "assets/images/test/45dcdfdf0b51351b7434cd1a4c873a4686b49e0d704534b7e683b25ed8dfcf90.png",
+  "sizeBytes": 70,
+  "createdAt": "2026-09-03T17:28:52.160Z"
+}

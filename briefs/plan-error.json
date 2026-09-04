@@ -1,0 +1,33 @@
+{
+  "brief": "A forced failure test",
+  "cacheKey": "869d9045a52cdcb6ae8b50f8d9447e07256ba183acda21f04c3a9f45f70193e9",
+  "maxAttempts": 3,
+  "schemaVersion": "1.1.0",
+  "timestamp": "2026-09-03T17:13:26.886Z",
+  "attempts": [
+    {
+      "attempt": 1,
+      "timestamp": "2026-09-03T17:13:20.359Z",
+      "maxTokens": 10,
+      "failureType": "EMPTY_RESPONSE_OR_TOKEN_STARVATION",
+      "rawResponse": "",
+      "error": "Model returned empty response or reasoning tokens consumed the entire budget."
+    },
+    {
+      "attempt": 2,
+      "timestamp": "2026-09-03T17:13:22.394Z",
+      "maxTokens": 10,
+      "failureType": "EMPTY_RESPONSE_OR_TOKEN_STARVATION",
+      "rawResponse": "",
+      "error": "Model returned empty response or reasoning tokens consumed the entire budget."
+    },
+    {
+      "attempt": 3,
+      "timestamp": "2026-09-03T17:13:26.886Z",
+      "maxTokens": 10,
+      "failureType": "EMPTY_RESPONSE_OR_TOKEN_STARVATION",
+      "rawResponse": "",
+      "error": "Model returned empty response or reasoning tokens consumed the entire budget."
+    }
+  ]
+}

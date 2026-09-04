@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "1.1.0",
+  "title": "PulseFit — TikTok/Reels Mobile Promo",
+  "aspectRatio": "9:16",
+  "totalDuration": 15,
+  "palette": {
+    "background": "#0f172a",
+    "surface": "#1e293b",
+    "primary": "#10b981",
+    "text": "#ffffff",
+    "subtext": "#94a3b8"
+  },
+  "scenes": [
+    {
+      "id": "scene-1",
+      "template": "title",
+      "purpose": "hook",
+      "visualEmphasis": "high",
+      "textDensity": "low",
+      "duration": 3,
+      "motionIntent": "scale-up",
+      "heading": "Train Smarter with PulseFit",
+      "subheading": "Your AI Workout Companion"
+    },
+    {
+      "id": "scene-2",
+      "template": "image-hero",
+      "purpose": "feature-presentation",
+      "visualEmphasis": "high",
+      "textDensity": "low",
+      "duration": 4,
+      "motionIntent": "fade-in",
+      "heading": "Real-Time Heart Rate Tracking",
+      "subheading": "See every beat, live",
+      "imageSlot": {
+        "prompt": "Sleek mobile app UI mockup showing real-time heart rate tracking with a glowing neon emerald green pulse waveform on a dark slate background, modern fitness dashboard design, vibrant BPM readout, clean minimal layout",
+        "style": "modern vector flat minimalist illustration neon dark theme",
+        "aspectRatio": "1:1",
+        "required": true
+      }
+    },
+    {
+      "id": "scene-3",
+      "template": "feature-callout",
+      "purpose": "feature-presentation",
+      "visualEmphasis": "medium",
+      "textDensity": "medium",
+      "duration": 5,
+      "motionIntent": "stagger-reveal",
+      "heading": "Real-Time Coaching",
+      "features": [
+        "Adaptive Workouts",
+        "Form Correction",
+        "Live Pace Guidance"
+      ]
+    },
+    {
+      "id": "scene-4",
+      "template": "cta",
+      "purpose": "call-to-action",
+      "visualEmphasis": "high",
+      "textDensity": "low",
+      "duration": 3,
+      "motionIntent": "slide-up",
+      "heading": "Download on iOS & Android",
+      "ctaText": "Get PulseFit Now"
+    }
+  ]
+}

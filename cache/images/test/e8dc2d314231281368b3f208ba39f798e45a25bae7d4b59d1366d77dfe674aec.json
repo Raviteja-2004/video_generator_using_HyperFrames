@@ -1,0 +1,12 @@
+{
+  "cacheKey": "e8dc2d314231281368b3f208ba39f798e45a25bae7d4b59d1366d77dfe674aec",
+  "sceneId": "scene-test",
+  "prompt": "Unit test synthetic graphic illustration",
+  "style": "minimalist dark neon",
+  "aspectRatio": "1:1",
+  "model": "gpt-image-2",
+  "seed": 100,
+  "assetPath": "assets/images/test/e8dc2d314231281368b3f208ba39f798e45a25bae7d4b59d1366d77dfe674aec.png",
+  "sizeBytes": 70,
+  "createdAt": "2026-09-03T17:28:52.105Z"
+}

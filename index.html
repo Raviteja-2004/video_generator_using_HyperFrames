@@ -1,51 +1,408 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=1920, height=1080">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>CodeStream AI Launch Promo</title>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        margin: 0;
-        width: 1920px;
-        height: 1080px;
-        overflow: hidden;
-        background: #000;
-      }
-      body {
-        font-family: "Inter", sans-serif;
-      }
-      code,
-      pre,
-      .monospace {
-        font-family: "JetBrains Mono", monospace;
-      }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    :root {
+      --bg-color: #09090b;
+      --surface-color: #18181b;
+      --primary-color: #8b5cf6;
+      --text-color: #ffffff;
+      --subtext-color: #a1a1aa;
+      --canvas-width: 1920px;
+      --canvas-height: 1080px;
+      --base-font-size: 28px;
+      --heading-size: 84px;
+      --subheading-size: 40px;
+      --card-padding: 48px 56px;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background-color: var(--bg-color);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text-color);
+    }
+
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 30%, #18181b44 0%, var(--bg-color) 80%);
+    }
+
+    /* Standard full-canvas clip container */
+    .clip {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1920px;
+      height: 1080px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 120px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .scene-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Reusable Typography & UI components */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 32px;
+      border-radius: 9999px;
+      background: #18181b;
+      border: 2px solid #8b5cf666;
+      color: var(--primary-color);
+      font-size: 28px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 40px;
+    }
+
+    .scene-heading {
+      font-size: var(--heading-size);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: var(--text-color);
+      max-width: 1400px;
+      word-wrap: break-word;
+    }
+
+    .scene-subheading {
+      font-size: var(--subheading-size);
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--subtext-color);
+      margin-top: 32px;
+      max-width: 1200px;
+      word-wrap: break-word;
+    }
+
+    /* Template: Feature Callout */
+    .features-grid {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: stretch;
+      gap: 32px;
+      margin-top: 56px;
+      width: 100%;
+      max-width: 1500px;
+    }
+
+    .feature-card {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: var(--card-padding);
+      background: var(--surface-color);
+      border-radius: 24px;
+      border: 2px solid #18181bee;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      text-align: center;
+    }
+
+    .feature-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: #8b5cf622;
+      border: 2px solid var(--primary-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--primary-color);
+      font-weight: 800;
+      font-size: 30px;
+      flex-shrink: 0;
+    }
+
+    .feature-text {
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--text-color);
+      line-height: 1.3;
+    }
+
+    /* Template: Stat Highlight */
+    .stat-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 24px;
+    }
+
+    .stat-value {
+      font-size: 180px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, #ffffff 30%, var(--primary-color) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 24px;
+      filter: drop-shadow(0 15px 30px #8b5cf644);
+    }
+
+    .stat-label {
+      font-size: 48px;
+      font-weight: 600;
+      color: var(--subtext-color);
+      max-width: 1100px;
+    }
+
+    /* Template: Image Hero */
+    .hero-layout {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 80px;
+      width: 100%;
+      max-width: 1500px;
+      margin-top: 32px;
+    }
+
+    .hero-text-side {
+      flex: 1;
+      text-align: left;
+    }
+
+    .hero-media-side {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-image-box {
+      width: 540px;
+      height: 540px;
+      border-radius: 32px;
+      background: radial-gradient(circle at 30% 30%, #8b5cf633 0%, var(--surface-color) 100%);
+      border: 3px solid #8b5cf655;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 28px;
+    }
+
+    .hero-placeholder-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 32px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-placeholder-icon {
+      font-size: 72px;
+      margin-bottom: 16px;
+    }
+
+    .hero-placeholder-text {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--subtext-color);
+      text-align: center;
+      max-width: 85%;
+      word-wrap: break-word;
+    }
+
+    /* Template: CTA */
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 80px;
+      border-radius: 9999px;
+      background: var(--primary-color);
+      color: #000000;
+      font-size: 44px;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 20px 50px #8b5cf666;
+      margin-top: 56px;
+      letter-spacing: -0.01em;
+    }
+
+    .cta-subtext {
+      font-size: 32px;
+      color: var(--subtext-color);
+      margin-top: 24px;
+      font-weight: 500;
+    }
+  
     </style>
   </head>
   <body>
-    <div data-hf-id="hf-199x" id="root" data-composition-id="main" data-start="0" data-duration="10" data-width="1920" data-height="1080">
-      
-      
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="12"
+      data-width="1920"
+      data-height="1080"
+    >
 
-      <!--
-        Add your clips here. Example:
-        <div id="title" class="clip" data-start="0" data-duration="5" data-track-index="1"
-             style="font-size: 64px; color: #fff; padding: 40px">
-          Hello World
+    <div id="scene-1" class="clip" data-start="0" data-duration="3">
+      <div class="scene-inner" id="scene-1-inner">
+        <div class="badge" id="scene-1-badge">hook</div>
+        <h1 class="scene-heading" id="scene-1-heading">CodeStream</h1>
+        <div class="scene-subheading" id="scene-1-sub">AI-Powered Development Platform</div>
+      </div>
+    </div>
+  
+
+    <div id="scene-2" class="clip" data-start="3" data-duration="3">
+      <div class="scene-inner" id="scene-2-inner">
+        <h2 class="scene-heading" id="scene-2-heading" style="font-size: 68px">Built for Speed</h2>
+        <div class="features-grid" id="scene-2-grid">
+          
+    <div class="feature-card" id="scene-2-card-0">
+      <div class="feature-icon">01</div>
+      <div class="feature-text">Instant Review</div>
+    </div>
+  
+
+    <div class="feature-card" id="scene-2-card-1">
+      <div class="feature-icon">02</div>
+      <div class="feature-text">AI-Assisted Workflows</div>
+    </div>
+  
+
+    <div class="feature-card" id="scene-2-card-2">
+      <div class="feature-icon">03</div>
+      <div class="feature-text">Seamless Collaboration</div>
+    </div>
+  
         </div>
-      -->
+      </div>
+    </div>
+  
+
+    <div id="scene-3" class="clip" data-start="6" data-duration="3">
+      <div class="scene-inner" id="scene-3-inner">
+        <h2 class="scene-heading" id="scene-3-heading" style="font-size: 64px">Developer Velocity</h2>
+        <div class="stat-container" id="scene-3-container">
+          <div class="stat-value" id="scene-3-val">10x</div>
+          <div class="stat-label" id="scene-3-lbl">Faster Shipping</div>
+        </div>
+      </div>
+    </div>
+  
+
+    <div id="scene-4" class="clip" data-start="9" data-duration="3">
+      <div class="scene-inner" id="scene-4-inner">
+        <h2 class="scene-heading" id="scene-4-heading" style="font-size: 76px">Ready to Build Faster?</h2>
+        <a href="#" class="cta-button" id="scene-4-btn">Start Free Trial</a>
+        <div class="cta-subtext" id="scene-4-sub">Join the future of development</div>
+      </div>
+    </div>
+  
     </div>
 
     <script>
       window.__timelines = window.__timelines || {};
       const tl = gsap.timeline({ paused: true });
-      // Example: tl.from("#title", { opacity: 0, y: -50, duration: 1 }, 0);
+
+
+    // Scene: scene-1 (title)
+    tl.from("#scene-1-heading", { opacity: 0, scale: 0.92, y: 30, duration: 0.6, ease: "power3.out" }, 0);
+    tl.from("#scene-1-sub", { opacity: 0, y: 20, duration: 0.5, ease: "power2.out" }, 0.2);
+    tl.from("#scene-1-badge", { opacity: 0, y: -20, duration: 0.4, ease: "power2.out" }, 0);
+    tl.to("#scene-1-inner", { opacity: 0, y: -20, duration: 0.35, ease: "power2.in" }, 2.6);
+    tl.set("#scene-1-inner", { opacity: 0 }, 3);
+  
+
+    // Scene: scene-2 (feature-callout)
+    tl.from("#scene-2-heading", { opacity: 0, y: 25, duration: 0.5, ease: "power3.out" }, 3);
+    tl.from("#scene-2 .feature-card", {
+      opacity: 0,
+      y: 35,
+      stagger: 0.15,
+      duration: 0.6,
+      ease: "back.out(1.2)"
+    }, 3.15);
+    tl.to("#scene-2-inner", { opacity: 0, scale: 0.95, duration: 0.35, ease: "power2.in" }, 5.6);
+    tl.set("#scene-2-inner", { opacity: 0 }, 6);
+  
+
+    // Scene: scene-3 (stat-highlight)
+    tl.from("#scene-3-heading", { opacity: 0, y: 20, duration: 0.5, ease: "power2.out" }, 6);
+    tl.from("#scene-3-val", {
+      opacity: 0,
+      scale: 0.6,
+      duration: 0.7,
+      ease: "back.out(1.5)"
+    }, 6.15);
+    tl.from("#scene-3-lbl", { opacity: 0, y: 20, duration: 0.5, ease: "power2.out" }, 6.35);
+    tl.to("#scene-3-inner", { opacity: 0, y: -25, duration: 0.35, ease: "power2.in" }, 8.6);
+    tl.set("#scene-3-inner", { opacity: 0 }, 9);
+  
+
+    // Scene: scene-4 (cta)
+    tl.from("#scene-4-heading", { opacity: 0, y: 30, duration: 0.6, ease: "power3.out" }, 9);
+    tl.from("#scene-4-btn", {
+      opacity: 0,
+      scale: 0.8,
+      duration: 0.6,
+      ease: "back.out(1.4)"
+    }, 9.2);
+    tl.from("#scene-4-sub", { opacity: 0, y: 15, duration: 0.4, ease: "power2.out" }, 9.35);
+    tl.to("#scene-4-inner", { opacity: 0, duration: 0.35, ease: "power2.in" }, 11.6);
+    tl.set("#scene-4-inner", { opacity: 0 }, 12);
+  
+
       window.__timelines["main"] = tl;
     </script>
   </body>

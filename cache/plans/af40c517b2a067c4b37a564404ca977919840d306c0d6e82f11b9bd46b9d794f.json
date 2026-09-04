@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "1.1.0",
+  "title": "Aether Brand Teaser",
+  "aspectRatio": "16:9",
+  "totalDuration": 6,
+  "palette": {
+    "background": "#09090b",
+    "surface": "#18181b",
+    "primary": "#06b6d4",
+    "text": "#ffffff",
+    "subtext": "#a1a1aa"
+  },
+  "scenes": [
+    {
+      "id": "scene-1",
+      "template": "title",
+      "purpose": "hook",
+      "visualEmphasis": "high",
+      "textDensity": "low",
+      "duration": 2,
+      "motionIntent": "scale-up",
+      "heading": "Aether",
+      "subheading": "Creative Design Studio"
+    },
+    {
+      "id": "scene-2",
+      "template": "feature-callout",
+      "purpose": "feature-presentation",
+      "visualEmphasis": "medium",
+      "textDensity": "medium",
+      "duration": 2.5,
+      "motionIntent": "stagger-reveal",
+      "heading": "Core Services",
+      "features": [
+        "Brand Identity",
+        "UI Motion"
+      ]
+    },
+    {
+      "id": "scene-3",
+      "template": "cta",
+      "purpose": "call-to-action",
+      "visualEmphasis": "high",
+      "textDensity": "low",
+      "duration": 1.5,
+      "motionIntent": "slide-up",
+      "heading": "View Our Portfolio",
+      "ctaText": "Explore Work"
+    }
+  ]
+}

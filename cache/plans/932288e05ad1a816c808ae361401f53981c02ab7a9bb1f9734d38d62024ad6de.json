@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "1.1.0",
+  "title": "CodeStream AI Developer Tool Ad",
+  "aspectRatio": "16:9",
+  "totalDuration": 12,
+  "palette": {
+    "background": "#09090b",
+    "surface": "#18181b",
+    "primary": "#8b5cf6",
+    "text": "#ffffff",
+    "subtext": "#a1a1aa"
+  },
+  "scenes": [
+    {
+      "id": "scene-1",
+      "template": "title",
+      "purpose": "hook",
+      "visualEmphasis": "high",
+      "textDensity": "low",
+      "duration": 2.5,
+      "motionIntent": "scale-up",
+      "heading": "CodeStream",
+      "subheading": "AI-Powered Developer Tool"
+    },
+    {
+      "id": "scene-2",
+      "template": "feature-callout",
+      "purpose": "feature-presentation",
+      "visualEmphasis": "medium",
+      "textDensity": "medium",
+      "duration": 4,
+      "motionIntent": "stagger-reveal",
+      "heading": "Supercharge Your Workflow",
+      "features": [
+        "Instant Code Review",
+        "Real-time Refactoring",
+        "Zero Latency"
+      ]
+    },
+    {
+      "id": "scene-3",
+      "template": "stat-highlight",
+      "purpose": "announcement",
+      "visualEmphasis": "high",
+      "textDensity": "low",
+      "duration": 3,
+      "motionIntent": "counter-zoom",
+      "heading": "10x Developer Velocity",
+      "subheading": "Experience the ultimate coding speed",
+      "stat": {
+        "value": "10x",
+        "label": "Developer Velocity"
+      }
+    },
+    {
+      "id": "scene-4",
+      "template": "cta",
+      "purpose": "call-to-action",
+      "visualEmphasis": "high",
+      "textDensity": "low",
+      "duration": 2.5,
+      "motionIntent": "slide-up",
+      "heading": "Start Free Trial",
+      "subheading": "Elevate your development today",
+      "ctaText": "Start Free Trial"
+    }
+  ]
+}

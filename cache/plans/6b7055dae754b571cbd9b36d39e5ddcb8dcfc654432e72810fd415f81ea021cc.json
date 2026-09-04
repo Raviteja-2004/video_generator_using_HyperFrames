@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "1.1.0",
+  "title": "Token Starvation",
+  "aspectRatio": "16:9",
+  "totalDuration": 10,
+  "palette": {
+    "background": "#09090b",
+    "surface": "#18181b",
+    "primary": "#ef4444",
+    "text": "#ffffff",
+    "subtext": "#a1a1aa"
+  },
+  "scenes": [
+    {
+      "id": "scene-1",
+      "template": "title",
+      "purpose": "hook",
+      "visualEmphasis": "high",
+      "textDensity": "low",
+      "duration": 3,
+      "motionIntent": "scale-up",
+      "heading": "A Brief That Will Fail",
+      "subheading": "Due to token starvation"
+    },
+    {
+      "id": "scene-2",
+      "template": "feature-callout",
+      "purpose": "announcement",
+      "visualEmphasis": "medium",
+      "textDensity": "medium",
+      "duration": 4,
+      "motionIntent": "stagger-reveal",
+      "heading": "What Went Wrong",
+      "features": [
+        "The brief ran out of tokens",
+        "The response was cut short",
+        "Nothing could be generated"
+      ]
+    },
+    {
+      "id": "scene-3",
+      "template": "cta",
+      "purpose": "call-to-action",
+      "visualEmphasis": "medium",
+      "textDensity": "low",
+      "duration": 3,
+      "motionIntent": "fade-in",
+      "heading": "Try Again",
+      "ctaText": "Resubmit Brief"
+    }
+  ]
+}

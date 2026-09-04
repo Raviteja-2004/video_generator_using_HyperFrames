@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.1.0",
+  "title": "CloudDB Quick Teaser",
+  "aspectRatio": "16:9",
+  "totalDuration": 6,
+  "palette": {
+    "background": "#09090b",
+    "surface": "#18181b",
+    "primary": "#8b5cf6",
+    "text": "#ffffff",
+    "subtext": "#a1a1aa"
+  },
+  "scenes": [
+    {
+      "id": "scene-1",
+      "template": "title",
+      "purpose": "hook",
+      "visualEmphasis": "high",
+      "textDensity": "low",
+      "duration": 3,
+      "motionIntent": "scale-up",
+      "heading": "CloudDB",
+      "subheading": "The future of data."
+    },
+    {
+      "id": "scene-2",
+      "template": "cta",
+      "purpose": "call-to-action",
+      "visualEmphasis": "high",
+      "textDensity": "low",
+      "duration": 3,
+      "motionIntent": "slide-up",
+      "heading": "Get Started Today",
+      "ctaText": "Try CloudDB Free"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "1.1.0",
+  "title": "DevPulse Introduction",
+  "aspectRatio": "16:9",
+  "totalDuration": 9,
+  "palette": {
+    "background": "#09090b",
+    "surface": "#18181b",
+    "primary": "#06b6d4",
+    "text": "#ffffff",
+    "subtext": "#a1a1aa"
+  },
+  "scenes": [
+    {
+      "id": "scene-1",
+      "template": "title",
+      "purpose": "hook",
+      "visualEmphasis": "high",
+      "textDensity": "low",
+      "duration": 3,
+      "motionIntent": "scale-up",
+      "heading": "DevPulse",
+      "subheading": "Real-Time Cloud Monitoring"
+    },
+    {
+      "id": "scene-2",
+      "template": "feature-callout",
+      "purpose": "feature-presentation",
+      "visualEmphasis": "high",
+      "textDensity": "medium",
+      "duration": 3,
+      "motionIntent": "stagger-reveal",
+      "heading": "Monitor Your Cloud",
+      "features": [
+        "Real-Time Alerts",
+        "Live Infrastructure Metrics",
+        "Seamless Integration"
+      ]
+    },
+    {
+      "id": "scene-3",
+      "template": "cta",
+      "purpose": "call-to-action",
+      "visualEmphasis": "high",
+      "textDensity": "low",
+      "duration": 3,
+      "motionIntent": "slide-up",
+      "heading": "See Your Cloud in Real Time",
+      "ctaText": "Get Started"
+    }
+  ]
+}
