@@ -19,6 +19,7 @@ export const PaletteSchema = z.object({
   background: z.string().regex(/^#[0-9a-fA-F]{6}$|^#[0-9a-fA-F]{3}$/, "Must be valid hex color"),
   surface: z.string().regex(/^#[0-9a-fA-F]{6}$|^#[0-9a-fA-F]{3}$/, "Must be valid hex color"),
   primary: z.string().regex(/^#[0-9a-fA-F]{6}$|^#[0-9a-fA-F]{3}$/, "Must be valid hex color (accent color)"),
+  secondary: z.string().regex(/^#[0-9a-fA-F]{6}$|^#[0-9a-fA-F]{3}$/, "Must be valid hex color").optional(),
   text: z.string().regex(/^#[0-9a-fA-F]{6}$|^#[0-9a-fA-F]{3}$/, "Must be valid hex color"),
   subtext: z.string().regex(/^#[0-9a-fA-F]{6}$|^#[0-9a-fA-F]{3}$/, "Must be valid hex color")
 });

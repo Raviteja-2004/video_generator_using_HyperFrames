@@ -4,11 +4,12 @@
   "aspectRatio": "16:9",
   "totalDuration": 9,
   "palette": {
-    "background": "#09090b",
-    "surface": "#18181b",
-    "primary": "#06b6d4",
-    "text": "#ffffff",
-    "subtext": "#a1a1aa"
+    "background": "#0f0a06",
+    "surface": "#1c1108",
+    "primary": "#ea580c",
+    "secondary": "#06b6d4",
+    "text": "#fefce8",
+    "subtext": "#fdba74"
   },
   "scenes": [
     {

@@ -1,0 +1,91 @@
+{
+  "jobId": "video-ddfe72ff61",
+  "brief": "Create a 12-second widescreen promotional video for TaskFlow, a smart project management app. Use 4 punchy scenes with bold lines like 'GET MORE DONE.' and 'ONE TEAM. ONE FLOW.' Use rich natural orange, emerald green, deep blue, warm yellow, purple, cream and near-black with premium combinations. Use oversized typography, varied compositions and heavy kinetic motion including slam-ins, scale, reveals, count-ups, wipes and dynamic transitions — no boring fade-ins. Make it feel like a premium high-end tech advertisement.",
+  "seed": 42,
+  "totalDurationMs": 89715,
+  "stageTimings": {
+    "planningMs": 38697,
+    "imageResolutionMs": 1,
+    "compositionAndGateMs": 20333,
+    "renderMs": 30682
+  },
+  "plan": {
+    "schemaVersion": "1.1.0",
+    "title": "TaskFlow Promo",
+    "aspectRatio": "16:9",
+    "totalDuration": 12,
+    "palette": {
+      "background": "#0a0a0f",
+      "surface": "#1e1b3a",
+      "primary": "#f97316",
+      "text": "#fef9e7",
+      "subtext": "#a8a29e"
+    },
+    "scenes": [
+      {
+        "id": "scene-1",
+        "template": "title",
+        "purpose": "hook",
+        "visualEmphasis": "high",
+        "textDensity": "low",
+        "duration": 3,
+        "motionIntent": "scale-up",
+        "heading": "GET MORE DONE.",
+        "subheading": "TaskFlow"
+      },
+      {
+        "id": "scene-2",
+        "template": "feature-callout",
+        "purpose": "feature-presentation",
+        "visualEmphasis": "high",
+        "textDensity": "medium",
+        "duration": 3,
+        "motionIntent": "stagger-reveal",
+        "heading": "Smart Project Management",
+        "features": [
+          "Smart Tasks",
+          "Team Sync",
+          "Live Flow"
+        ]
+      },
+      {
+        "id": "scene-3",
+        "template": "title",
+        "purpose": "announcement",
+        "visualEmphasis": "high",
+        "textDensity": "low",
+        "duration": 3,
+        "motionIntent": "counter-zoom",
+        "heading": "ONE TEAM. ONE FLOW.",
+        "subheading": "TaskFlow"
+      },
+      {
+        "id": "scene-4",
+        "template": "cta",
+        "purpose": "call-to-action",
+        "visualEmphasis": "high",
+        "textDensity": "low",
+        "duration": 3,
+        "motionIntent": "slide-up",
+        "heading": "Start Your Flow",
+        "ctaText": "Get Started"
+      }
+    ]
+  },
+  "resolvedImages": {},
+  "repairCount": 0,
+  "gateOk": true,
+  "gateDetails": {
+    "lintOk": true,
+    "runtimeOk": true,
+    "layoutOk": true,
+    "contrastOk": true
+  },
+  "output": {
+    "mp4Path": "renders/video-ddfe72ff61.mp4",
+    "sizeBytes": 1798311,
+    "durationSeconds": 12,
+    "resolution": "1920x1080"
+  },
+  "completedAt": "2026-09-04T06:24:45.425Z"
+}

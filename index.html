@@ -3,28 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1920, height=1080" />
-    <title>CodeStream AI Launch Promo</title>
+    <title>TaskFlow Promo</title>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
     <style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     :root {
-      --bg-color: #09090b;
-      --surface-color: #18181b;
-      --primary-color: #8b5cf6;
-      --text-color: #ffffff;
-      --subtext-color: #a1a1aa;
+      --bg-color: #0a0a0f;
+      --surface-color: #1e1b3a;
+      --primary-color: #f97316;
+      --secondary-color: #f97316;
+      --text-color: #fef9e7;
+      --subtext-color: #a8a29e;
       --canvas-width: 1920px;
       --canvas-height: 1080px;
       --base-font-size: 28px;
-      --heading-size: 84px;
-      --subheading-size: 40px;
+      --heading-size: 100px;
+      --subheading-size: 44px;
       --card-padding: 48px 56px;
     }
 
@@ -35,7 +39,7 @@
       height: 1080px;
       overflow: hidden;
       background-color: var(--bg-color);
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: "Inter", "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
       color: var(--text-color);
     }
 
@@ -44,22 +48,75 @@
       width: 1920px;
       height: 1080px;
       overflow: hidden;
-      background: radial-gradient(circle at 50% 30%, #18181b44 0%, var(--bg-color) 80%);
+      background: var(--bg-color);
     }
 
-    /* Standard full-canvas clip container */
+    /* ── Background layer ── */
+    .bg-layer {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    /* Geometric background shapes */
+    .bg-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(140px);
+      opacity: 0.18;
+    }
+
+    .bg-orb-1 {
+      width: 800px;
+      height: 800px;
+      background: var(--primary-color);
+      top: -15%;
+      right: -10%;
+    }
+
+    .bg-orb-2 {
+      width: 600px;
+      height: 600px;
+      background: var(--secondary-color);
+      bottom: -10%;
+      left: -8%;
+      opacity: 0.12;
+    }
+
+    .bg-grid {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image:
+        linear-gradient(#f9731608 1px, transparent 1px),
+        linear-gradient(90deg, #f9731608 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+
+    .bg-accent-bar {
+      position: absolute;
+      width: 10px;
+      height: 60%;
+      left: 48px;
+      top: 20%;
+      background: linear-gradient(180deg, #f97316 0%, transparent 100%);
+      opacity: 0.7;
+      border-radius: 999px;
+    }
+
+    /* ── Standard full-canvas clip container ── */
     .clip {
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 1920px;
       height: 1080px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 80px 120px;
-      text-align: center;
       overflow: hidden;
     }
 
@@ -72,33 +129,53 @@
       align-items: center;
       text-align: center;
       position: relative;
+      z-index: 2;
+      padding: 80px 120px;
     }
 
-    /* Reusable Typography & UI components */
-    .badge {
+    /* ── Reusable typography ── */
+    .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      padding: 14px 32px;
+      gap: 10px;
+      padding: 12px 26px;
       border-radius: 9999px;
-      background: #18181b;
-      border: 2px solid #8b5cf666;
+      background: #f9731618;
+      border: 1.5px solid #f9731650;
       color: var(--primary-color);
-      font-size: 28px;
+      font-size: 20px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 40px;
+      letter-spacing: 3px;
+      margin-bottom: 36px;
+    }
+
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary-color);
+      display: inline-block;
     }
 
     .scene-heading {
+      font-family: "Space Grotesk", "Inter", sans-serif;
       font-size: var(--heading-size);
       font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
       color: var(--text-color);
-      max-width: 1400px;
+      max-width: 1500px;
       word-wrap: break-word;
+    }
+
+    .scene-heading .accent {
+      color: var(--primary-color);
+    }
+
+    .scene-heading .stroke {
+      -webkit-text-stroke: 2px var(--primary-color);
+      color: transparent;
     }
 
     .scene-subheading {
@@ -107,18 +184,26 @@
       line-height: 1.4;
       color: var(--subtext-color);
       margin-top: 32px;
-      max-width: 1200px;
+      max-width: 1300px;
       word-wrap: break-word;
     }
 
-    /* Template: Feature Callout */
+    .divider-line {
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-color), transparent);
+      border-radius: 99px;
+      margin: 32px auto;
+    }
+
+    /* ── Feature Callout ── */
     .features-grid {
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: stretch;
-      gap: 32px;
-      margin-top: 56px;
+      gap: 28px;
+      margin-top: 52px;
       width: 100%;
       max-width: 1500px;
     }
@@ -127,57 +212,155 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       gap: 20px;
       padding: var(--card-padding);
-      background: var(--surface-color);
-      border-radius: 24px;
-      border: 2px solid #18181bee;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-      text-align: center;
+      background: #1e1b3a;
+      border-radius: 20px;
+      border: 1.5px solid #f9731625;
+      border-left: 4px solid var(--primary-color);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5), inset 0 1px 0 #f9731615;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
     }
 
-    .feature-icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 16px;
-      background: #8b5cf622;
-      border: 2px solid var(--primary-color);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: var(--primary-color);
-      font-weight: 800;
-      font-size: 30px;
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, var(--primary-color), transparent);
+    }
+
+    .feature-card:nth-child(2) {
+      border-left-color: var(--secondary-color);
+    }
+
+    .feature-card:nth-child(2)::before {
+      background: linear-gradient(90deg, var(--secondary-color), transparent);
+    }
+
+    .feature-icon-badge {
+      font-size: 60px;
+      line-height: 1;
       flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      border-radius: 18px;
+      background: #f9731615;
+      border: 1.5px solid #f9731630;
+    }
+
+    .feature-card:nth-child(2) .feature-icon-badge {
+      background: var(--secondary-color, var(--primary-color))15;
+      border-color: var(--secondary-color, var(--primary-color))30;
+    }
+
+    .feature-num {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--primary-color);
+      line-height: 1;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.6;
+      margin-bottom: 4px;
+    }
+
+    .feature-card:nth-child(2) .feature-num {
+      color: var(--secondary-color);
+    }
+
+    .feature-card:nth-child(3) .feature-num {
+      color: var(--primary-color);
+      opacity: 0.6;
+    }
+
+    .feature-text-block {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
     }
 
     .feature-text {
-      font-size: 30px;
+      font-size: 28px;
       font-weight: 700;
       color: var(--text-color);
-      line-height: 1.3;
+      line-height: 1.25;
     }
 
-    /* Template: Stat Highlight */
+    /* ── Stat Highlight ── */
+    .stat-scene-bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      overflow: hidden;
+    }
+
+    .stat-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 2px solid #f9731620;
+    }
+
+    .stat-ring-1 {
+      width: 900px;
+      height: 900px;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .stat-ring-2 {
+      width: 650px;
+      height: 650px;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      border-color: #f9731615;
+    }
+
     .stat-container {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-top: 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stat-label-top {
+      font-size: 28px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--primary-color);
+      margin-bottom: 28px;
+      opacity: 0.9;
     }
 
     .stat-value {
-      font-size: 180px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 240px;
       font-weight: 900;
       line-height: 1;
-      letter-spacing: -0.04em;
-      background: linear-gradient(135deg, #ffffff 30%, var(--primary-color) 100%);
+      letter-spacing: -0.06em;
+      background: linear-gradient(135deg, var(--text-color) 40%, var(--primary-color) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 24px;
-      filter: drop-shadow(0 15px 30px #8b5cf644);
+      background-clip: text;
+      filter: drop-shadow(0 0 60px #f9731644);
+    }
+
+    .stat-divider {
+      width: 160px;
+      height: 3px;
+      background: var(--primary-color);
+      border-radius: 99px;
+      margin: 28px 0;
+      opacity: 0.6;
     }
 
     .stat-label {
@@ -185,23 +368,35 @@
       font-weight: 600;
       color: var(--subtext-color);
       max-width: 1100px;
+      text-align: center;
     }
 
-    /* Template: Image Hero */
+    /* ── Image Hero ── */
     .hero-layout {
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       gap: 80px;
       width: 100%;
-      max-width: 1500px;
-      margin-top: 32px;
+      max-width: 1600px;
     }
 
     .hero-text-side {
       flex: 1;
       text-align: left;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-kicker {
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--primary-color);
+      margin-bottom: 24px;
     }
 
     .hero-media-side {
@@ -212,12 +407,12 @@
     }
 
     .hero-image-box {
-      width: 540px;
-      height: 540px;
-      border-radius: 32px;
-      background: radial-gradient(circle at 30% 30%, #8b5cf633 0%, var(--surface-color) 100%);
-      border: 3px solid #8b5cf655;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+      width: 560px;
+      height: 560px;
+      border-radius: 28px;
+      background: radial-gradient(circle at 30% 30%, #f9731625 0%, #1e1b3a 100%);
+      border: 2px solid #f9731640;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.7), 0 0 0 1px #f9731615;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -226,12 +421,20 @@
       overflow: hidden;
     }
 
+    .hero-image-box::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    }
+
     .hero-image-box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-      border-radius: 28px;
+      border-radius: 26px;
     }
 
     .hero-placeholder-content {
@@ -242,44 +445,84 @@
       padding: 32px;
       width: 100%;
       height: 100%;
+      gap: 16px;
     }
 
     .hero-placeholder-icon {
-      font-size: 72px;
-      margin-bottom: 16px;
+      font-size: 80px;
+      opacity: 0.7;
     }
 
     .hero-placeholder-text {
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 600;
       color: var(--subtext-color);
       text-align: center;
       max-width: 85%;
       word-wrap: break-word;
+      line-height: 1.4;
     }
 
-    /* Template: CTA */
+    /* ── CTA ── */
+    .cta-scene {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 120px;
+    }
+
+    .cta-highlight-line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    }
+
     .cta-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 16px;
       padding: 32px 80px;
-      border-radius: 9999px;
+      border-radius: 14px;
       background: var(--primary-color);
       color: #000000;
-      font-size: 44px;
+      font-size: 40px;
       font-weight: 800;
       text-decoration: none;
-      box-shadow: 0 20px 50px #8b5cf666;
-      margin-top: 56px;
+      box-shadow: 0 20px 60px #f9731655, 0 0 0 2px #f9731640;
+      margin-top: 52px;
       letter-spacing: -0.01em;
     }
 
+    .cta-btn-icon {
+      font-size: 44px;
+      font-weight: 900;
+      line-height: 1;
+      display: inline-block;
+    }
+
     .cta-subtext {
-      font-size: 32px;
+      font-size: 30px;
       color: var(--subtext-color);
       margin-top: 24px;
       font-weight: 500;
+    }
+
+    /* ── Kinetic word spans for JS splitting ── */
+    .word {
+      display: inline-block;
+      overflow: hidden;
+    }
+
+    .word-inner {
+      display: inline-block;
     }
   
     </style>
@@ -295,33 +538,58 @@
     >
 
     <div id="scene-1" class="clip" data-start="0" data-duration="3">
+      <div class="bg-layer">
+        <div class="bg-orb bg-orb-1" id="scene-1-orb1"></div>
+        <div class="bg-orb bg-orb-2" id="scene-1-orb2"></div>
+        <div class="bg-grid"></div>
+        <div class="bg-accent-bar" id="scene-1-bar"></div>
+      </div>
       <div class="scene-inner" id="scene-1-inner">
-        <h1 class="scene-heading" id="scene-1-heading">CodeStream</h1>
-        <div class="scene-subheading" id="scene-1-sub">AI-Powered Development Platform</div>
+        <div class="eyebrow" id="scene-1-eyebrow">
+          <span class="eyebrow-dot"></span>
+          NOW LIVE
+        </div>
+        <h1 class="scene-heading" id="scene-1-heading">GET MORE DONE.</h1>
+        <div class="divider-line" id="scene-1-div"></div>
+        <div class="scene-subheading" id="scene-1-sub">TaskFlow</div>
       </div>
     </div>
   
 
     <div id="scene-2" class="clip" data-start="3" data-duration="3">
+      <div class="bg-layer">
+        <div class="bg-orb bg-orb-1" id="scene-2-orb1" style="opacity:0.1;"></div>
+        <div class="bg-grid"></div>
+      </div>
       <div class="scene-inner" id="scene-2-inner">
-        <h2 class="scene-heading" id="scene-2-heading" style="font-size: 68px">Built for Speed</h2>
+        <h2 class="scene-heading" id="scene-2-heading" style="font-size: 72px">Smart Project Management</h2>
+        <div class="divider-line" id="scene-2-div"></div>
         <div class="features-grid" id="scene-2-grid">
           
     <div class="feature-card" id="scene-2-card-0">
-      <div class="feature-icon">01</div>
-      <div class="feature-text">Instant Review</div>
+      <div class="feature-icon-badge" id="scene-2-icon-0">✦</div>
+      <div class="feature-text-block">
+        <div class="feature-num">01</div>
+        <div class="feature-text">Smart Tasks</div>
+      </div>
     </div>
   
 
     <div class="feature-card" id="scene-2-card-1">
-      <div class="feature-icon">02</div>
-      <div class="feature-text">AI-Assisted Workflows</div>
+      <div class="feature-icon-badge" id="scene-2-icon-1">🤝</div>
+      <div class="feature-text-block">
+        <div class="feature-num">02</div>
+        <div class="feature-text">Team Sync</div>
+      </div>
     </div>
   
 
     <div class="feature-card" id="scene-2-card-2">
-      <div class="feature-icon">03</div>
-      <div class="feature-text">Seamless Collaboration</div>
+      <div class="feature-icon-badge" id="scene-2-icon-2">✦</div>
+      <div class="feature-text-block">
+        <div class="feature-num">03</div>
+        <div class="feature-text">Live Flow</div>
+      </div>
     </div>
   
         </div>
@@ -330,21 +598,42 @@
   
 
     <div id="scene-3" class="clip" data-start="6" data-duration="3">
+      <div class="bg-layer">
+        <div class="bg-orb bg-orb-1" id="scene-3-orb1"></div>
+        <div class="bg-orb bg-orb-2" id="scene-3-orb2"></div>
+        <div class="bg-grid"></div>
+        <div class="bg-accent-bar" id="scene-3-bar"></div>
+      </div>
       <div class="scene-inner" id="scene-3-inner">
-        <h2 class="scene-heading" id="scene-3-heading" style="font-size: 64px">Developer Velocity</h2>
-        <div class="stat-container" id="scene-3-container">
-          <div class="stat-value" id="scene-3-val">10x</div>
-          <div class="stat-label" id="scene-3-lbl">Faster Shipping</div>
+        <div class="eyebrow" id="scene-3-eyebrow">
+          <span class="eyebrow-dot"></span>
+          NOW LIVE
         </div>
+        <h1 class="scene-heading" id="scene-3-heading">ONE TEAM. ONE FLOW.</h1>
+        <div class="divider-line" id="scene-3-div"></div>
+        <div class="scene-subheading" id="scene-3-sub">TaskFlow</div>
       </div>
     </div>
   
 
     <div id="scene-4" class="clip" data-start="9" data-duration="3">
-      <div class="scene-inner" id="scene-4-inner">
-        <h2 class="scene-heading" id="scene-4-heading" style="font-size: 76px">Ready to Build Faster?</h2>
-        <a href="#" class="cta-button" id="scene-4-btn">Start Free Trial</a>
-        <div class="cta-subtext" id="scene-4-sub">Join the future of development</div>
+      <div class="bg-layer">
+        <div class="bg-orb bg-orb-1" id="scene-4-orb1" style="opacity:0.25; top:-20%; right:-15%;"></div>
+        <div class="bg-orb bg-orb-2" id="scene-4-orb2" style="opacity:0.15; bottom:-15%; left:-10%;"></div>
+        <div class="bg-grid"></div>
+      </div>
+      <div class="cta-scene" id="scene-4-inner">
+        <div class="eyebrow" id="scene-4-eyebrow" style="margin-bottom: 40px">
+          <span class="eyebrow-dot"></span>
+          LIMITED TIME OFFER
+        </div>
+        <h2 class="scene-heading" id="scene-4-heading" style="font-size: 88px">Start Your Flow</h2>
+        <a href="#" class="cta-button" id="scene-4-btn">
+          <span class="cta-btn-icon" id="scene-4-btnicon">→</span>
+          Get Started Now
+        </a>
+        <div class="cta-subtext" id="scene-4-sub">No credit card required &nbsp;·&nbsp; Cancel anytime</div>
+        <div class="cta-highlight-line" id="scene-4-hline"></div>
       </div>
     </div>
   
@@ -356,48 +645,73 @@
 
 
     // Scene: scene-1 (title)
-    tl.from("#scene-1-heading", { opacity: 0, scale: 0.92, y: 30, duration: 0.6, ease: "power3.out" }, 0);
-    tl.from("#scene-1-sub", { opacity: 0, y: 20, duration: 0.5, ease: "power2.out" }, 0.2);
-    tl.to("#scene-1-inner", { opacity: 0, y: -20, duration: 0.35, ease: "power2.in" }, 2.6);
+    // Background orbs drift
+    tl.fromTo("#scene-1-orb1", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 0.22, duration: 1.2, ease: "power2.out" }, 0);
+    tl.fromTo("#scene-1-orb2", { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 0.12, duration: 1.4, ease: "power2.out" }, 0.1);
+    tl.fromTo("#scene-1-bar", { scaleY: 0, opacity: 0, transformOrigin: "top center" }, { scaleY: 1, opacity: 0.7, duration: 0.9, ease: "power3.out" }, 0.05);
+    // Eyebrow pill slides in from top
+    tl.fromTo("#scene-1-eyebrow", { opacity: 0, y: -28, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: "back.out(1.8)" }, 0.2);
+    // Heading slams in with overshoot
+    tl.fromTo("#scene-1-heading", { opacity: 0, y: 80, scale: 0.88 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: "expo.out" }, 0.35);
+    // Divider wipes in
+    tl.fromTo("#scene-1-div", { scaleX: 0, opacity: 0, transformOrigin: "left center" }, { scaleX: 1, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.65);
+    tl.fromTo("#scene-1-sub", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 0.75);
+    // Exit: whole inner slides up + fades
+    tl.to("#scene-1-inner", { opacity: 0, y: -40, scale: 0.96, duration: 0.45, ease: "power2.in" }, 2.5);
     tl.set("#scene-1-inner", { opacity: 0 }, 3);
   
 
     // Scene: scene-2 (feature-callout)
-    tl.from("#scene-2-heading", { opacity: 0, y: 25, duration: 0.5, ease: "power3.out" }, 3);
-    tl.from("#scene-2 .feature-card", {
-      opacity: 0,
-      y: 35,
-      stagger: 0.15,
-      duration: 0.6,
-      ease: "back.out(1.2)"
-    }, 3.15);
-    tl.to("#scene-2-inner", { opacity: 0, scale: 0.95, duration: 0.35, ease: "power2.in" }, 5.6);
+    tl.fromTo("#scene-2-orb1", { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 0.1, duration: 1, ease: "power2.out" }, 3);
+    tl.fromTo("#scene-2-heading", { opacity: 0, y: -40, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "expo.out" }, 3.05);
+    tl.fromTo("#scene-2-div", { scaleX: 0, transformOrigin: "left center" }, { scaleX: 1, duration: 0.4, ease: "power3.out" }, 3.4);
+    tl.fromTo("#scene-2-card-0", { opacity: 0, x: -60, scale: 0.92 }, { opacity: 1, x: 0, scale: 1, duration: 0.6, ease: "expo.out" }, 3.25);
+    tl.fromTo("#scene-2-icon-0", { opacity: 0, scale: 0.4, rotate: -15 }, { opacity: 1, scale: 1, rotate: 0, duration: 0.45, ease: "back.out(2)" }, 3.42);
+    tl.fromTo("#scene-2-card-1", { opacity: 0, x: 60, scale: 0.92 }, { opacity: 1, x: 0, scale: 1, duration: 0.6, ease: "expo.out" }, 3.43);
+    tl.fromTo("#scene-2-icon-1", { opacity: 0, scale: 0.4, rotate: -15 }, { opacity: 1, scale: 1, rotate: 0, duration: 0.45, ease: "back.out(2)" }, 3.6);
+    tl.fromTo("#scene-2-card-2", { opacity: 0, x: -60, scale: 0.92 }, { opacity: 1, x: 0, scale: 1, duration: 0.6, ease: "expo.out" }, 3.61);
+    tl.fromTo("#scene-2-icon-2", { opacity: 0, scale: 0.4, rotate: -15 }, { opacity: 1, scale: 1, rotate: 0, duration: 0.45, ease: "back.out(2)" }, 3.78);
+    tl.to("#scene-2-inner", { opacity: 0, y: -30, scale: 0.97, duration: 0.45, ease: "power2.in" }, 5.5);
     tl.set("#scene-2-inner", { opacity: 0 }, 6);
   
 
-    // Scene: scene-3 (stat-highlight)
-    tl.from("#scene-3-heading", { opacity: 0, y: 20, duration: 0.5, ease: "power2.out" }, 6);
-    tl.from("#scene-3-val", {
-      opacity: 0,
-      scale: 0.6,
-      duration: 0.7,
-      ease: "back.out(1.5)"
-    }, 6.15);
-    tl.from("#scene-3-lbl", { opacity: 0, y: 20, duration: 0.5, ease: "power2.out" }, 6.35);
-    tl.to("#scene-3-inner", { opacity: 0, y: -25, duration: 0.35, ease: "power2.in" }, 8.6);
+    // Scene: scene-3 (title)
+    // Background orbs drift
+    tl.fromTo("#scene-3-orb1", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 0.22, duration: 1.2, ease: "power2.out" }, 6);
+    tl.fromTo("#scene-3-orb2", { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 0.12, duration: 1.4, ease: "power2.out" }, 6.1);
+    tl.fromTo("#scene-3-bar", { scaleY: 0, opacity: 0, transformOrigin: "top center" }, { scaleY: 1, opacity: 0.7, duration: 0.9, ease: "power3.out" }, 6.05);
+    // Eyebrow pill slides in from top
+    tl.fromTo("#scene-3-eyebrow", { opacity: 0, y: -28, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: "back.out(1.8)" }, 6.2);
+    // Heading slams in with overshoot
+    tl.fromTo("#scene-3-heading", { opacity: 0, y: 80, scale: 0.88 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: "expo.out" }, 6.35);
+    // Divider wipes in
+    tl.fromTo("#scene-3-div", { scaleX: 0, opacity: 0, transformOrigin: "left center" }, { scaleX: 1, opacity: 1, duration: 0.5, ease: "power3.out" }, 6.65);
+    tl.fromTo("#scene-3-sub", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 6.75);
+    // Exit: whole inner slides up + fades
+    tl.to("#scene-3-inner", { opacity: 0, y: -40, scale: 0.96, duration: 0.45, ease: "power2.in" }, 8.5);
     tl.set("#scene-3-inner", { opacity: 0 }, 9);
   
 
     // Scene: scene-4 (cta)
-    tl.from("#scene-4-heading", { opacity: 0, y: 30, duration: 0.6, ease: "power3.out" }, 9);
-    tl.from("#scene-4-btn", {
-      opacity: 0,
-      scale: 0.8,
-      duration: 0.6,
-      ease: "back.out(1.4)"
-    }, 9.2);
-    tl.from("#scene-4-sub", { opacity: 0, y: 15, duration: 0.4, ease: "power2.out" }, 9.35);
-    tl.to("#scene-4-inner", { opacity: 0, duration: 0.35, ease: "power2.in" }, 11.6);
+    // Background orbs bloom in
+    tl.fromTo("#scene-4-orb1", { scale: 0.2, opacity: 0 }, { scale: 1, opacity: 0.25, duration: 1.4, ease: "power2.out" }, 9);
+    tl.fromTo("#scene-4-orb2", { scale: 0.2, opacity: 0 }, { scale: 1, opacity: 0.15, duration: 1.2, ease: "power2.out" }, 9.1);
+    // Eyebrow drops in
+    tl.fromTo("#scene-4-eyebrow", { opacity: 0, y: -30, scale: 0.88 }, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: "back.out(1.7)" }, 9.15);
+    // Heading slams up from below
+    tl.fromTo("#scene-4-heading", { opacity: 0, y: 70, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.75, ease: "expo.out" }, 9.3);
+    // CTA button bounces in
+    tl.fromTo("#scene-4-btn", { opacity: 0, scale: 0.6, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.65, ease: "back.out(1.8)" }, 9.6);
+    // Arrow icon slides in inside button
+    tl.fromTo("#scene-4-btnicon", { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }, 9.9);
+    // Subtle button pulse to draw the eye
+    tl.to("#scene-4-btn", { scale: 1.04, duration: 0.75, ease: "sine.inOut", yoyo: true, repeat: -1 }, 10.4);
+    // Subtext fades in
+    tl.fromTo("#scene-4-sub", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 9.85);
+    // Bottom highlight line wipes in
+    tl.fromTo("#scene-4-hline", { scaleX: 0, transformOrigin: "center center" }, { scaleX: 1, duration: 0.7, ease: "power3.out" }, 10);
+    // Exit
+    tl.to("#scene-4-inner", { opacity: 0, scale: 0.97, duration: 0.45, ease: "power2.in" }, 11.5);
     tl.set("#scene-4-inner", { opacity: 0 }, 12);
   
 

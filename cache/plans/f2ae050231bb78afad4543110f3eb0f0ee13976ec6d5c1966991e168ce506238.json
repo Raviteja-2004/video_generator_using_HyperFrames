@@ -1,15 +1,14 @@
 {
   "schemaVersion": "1.1.0",
-  "title": "CodeStream Launch",
+  "title": "TaskFlow Promo",
   "aspectRatio": "16:9",
   "totalDuration": 12,
   "palette": {
-    "background": "#0c0a1a",
-    "surface": "#161130",
-    "primary": "#7c3aed",
-    "secondary": "#f59e0b",
-    "text": "#f5f3ff",
-    "subtext": "#a78bfa"
+    "background": "#0a0a0f",
+    "surface": "#1e1b3a",
+    "primary": "#f97316",
+    "text": "#fef9e7",
+    "subtext": "#a8a29e"
   },
   "scenes": [
     {
@@ -20,8 +19,8 @@
       "textDensity": "low",
       "duration": 3,
       "motionIntent": "scale-up",
-      "heading": "CodeStream",
-      "subheading": "AI-Powered Development"
+      "heading": "GET MORE DONE.",
+      "subheading": "TaskFlow"
     },
     {
       "id": "scene-2",
@@ -31,26 +30,23 @@
       "textDensity": "medium",
       "duration": 3,
       "motionIntent": "stagger-reveal",
-      "heading": "Key Capabilities",
+      "heading": "Smart Project Management",
       "features": [
-        "Instant Code Review",
-        "Real-time Refactoring",
-        "Zero Latency"
+        "Smart Tasks",
+        "Team Sync",
+        "Live Flow"
       ]
     },
     {
       "id": "scene-3",
-      "template": "stat-highlight",
+      "template": "title",
       "purpose": "announcement",
       "visualEmphasis": "high",
       "textDensity": "low",
       "duration": 3,
       "motionIntent": "counter-zoom",
-      "heading": "Boost Your Workflow",
-      "stat": {
-        "value": "10x",
-        "label": "Developer Velocity"
-      }
+      "heading": "ONE TEAM. ONE FLOW.",
+      "subheading": "TaskFlow"
     },
     {
       "id": "scene-4",
@@ -60,8 +56,8 @@
       "textDensity": "low",
       "duration": 3,
       "motionIntent": "slide-up",
-      "heading": "Ready to Ship Faster?",
-      "ctaText": "Start Free Trial"
+      "heading": "Start Your Flow",
+      "ctaText": "Get Started"
     }
   ]
 }
