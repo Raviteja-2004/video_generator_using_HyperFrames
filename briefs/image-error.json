@@ -1,27 +1,21 @@
 {
-  "sceneId": "scene-2",
-  "cacheKey": "8352ba59611a3955229cacb6334129aaebb5e0d493366f97ea661fed605c6d34",
+  "sceneId": "scene-req-fail",
+  "cacheKey": "db4651713a06fb467e524774a317d4959a6f8847dafe5ae6d33a81746974a5b2",
   "isRequired": true,
-  "prompt": "Animated UI hero illustration of a heart rate tracking interface on a smartphone screen, glowing neon emerald green pulse line on a dark slate background, sleek fitness app design",
+  "prompt": "Required failing image",
   "attempts": [
     {
       "attempt": 1,
-      "timestamp": "2026-09-04T04:10:12.235Z",
-      "failureType": "TIMEOUT",
-      "error": "Image generation timed out: The user aborted a request."
+      "timestamp": "2026-09-04T04:38:57.806Z",
+      "failureType": "SERVER_ERROR",
+      "error": "Upstream server error: 500 Internal Server Error: Image service unavailable"
     },
     {
       "attempt": 2,
-      "timestamp": "2026-09-04T04:11:12.758Z",
-      "failureType": "TIMEOUT",
-      "error": "Image generation timed out: The user aborted a request."
-    },
-    {
-      "attempt": 3,
-      "timestamp": "2026-09-04T04:12:13.767Z",
-      "failureType": "TIMEOUT",
-      "error": "Image generation timed out: The user aborted a request."
+      "timestamp": "2026-09-04T04:38:57.819Z",
+      "failureType": "SERVER_ERROR",
+      "error": "Upstream server error: 500 Internal Server Error: Image service unavailable"
     }
   ],
-  "timestamp": "2026-09-04T04:12:13.767Z"
+  "timestamp": "2026-09-04T04:38:57.819Z"
 }

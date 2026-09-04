@@ -259,7 +259,7 @@ async function runSuite() {
     const imageResolution = await resolvePlanImages(plan2, {
       model: "gpt-image-2",
       seed: 42,
-      timeoutMs: 60000
+      timeoutMs: 180000
     });
 
     liveAssetPath = imageResolution.resolvedImages["scene-2"];
