@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.1.0",
-  "title": "CloudDB Teaser",
+  "title": "CloudDB Quick Teaser",
   "aspectRatio": "16:9",
   "totalDuration": 6,
   "palette": {
@@ -31,7 +31,8 @@
       "duration": 3,
       "motionIntent": "slide-up",
       "heading": "Ready to Scale?",
-      "ctaText": "Get Started"
+      "ctaText": "Learn More",
+      "ctaSubtext": "Experience the difference today"
     }
   ]
 }

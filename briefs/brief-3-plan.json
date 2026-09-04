@@ -1,14 +1,14 @@
 {
   "schemaVersion": "1.1.0",
-  "title": "DesignX Global 2026",
+  "title": "DesignX Global 2026 Announcement",
   "aspectRatio": "16:9",
   "totalDuration": 9,
   "palette": {
-    "background": "#0a0a0f",
+    "background": "#09090b",
     "surface": "#18181b",
     "primary": "#06b6d4",
     "text": "#ffffff",
-    "subtext": "#94a3b8"
+    "subtext": "#a1a1aa"
   },
   "scenes": [
     {
@@ -26,11 +26,11 @@
       "id": "scene-2",
       "template": "feature-callout",
       "purpose": "feature-presentation",
-      "visualEmphasis": "high",
+      "visualEmphasis": "medium",
       "textDensity": "medium",
       "duration": 3,
       "motionIntent": "stagger-reveal",
-      "heading": "What Awaits You",
+      "heading": "Event Highlights",
       "features": [
         "Keynotes",
         "Workshops"
@@ -44,8 +44,8 @@
       "textDensity": "low",
       "duration": 3,
       "motionIntent": "slide-up",
-      "heading": "Secure Your Seat Now",
-      "ctaText": "Register Now"
+      "heading": "Join Us in Tokyo",
+      "ctaText": "Secure Your Seat Now"
     }
   ]
 }
