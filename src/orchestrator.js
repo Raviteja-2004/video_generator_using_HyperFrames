@@ -15,10 +15,9 @@ dotenv.config();
 
 const execAsync = promisify(exec);
 
-// Ensure FFmpeg is available on PATH on Windows
-const WIN_FFMPEG_PATH = "C:\\Users\\manoj\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.1-full_build\\bin";
-if (process.platform === "win32" && !process.env.PATH?.includes("ffmpeg")) {
-  process.env.PATH = `${WIN_FFMPEG_PATH};${process.env.PATH}`;
+// Optional custom FFmpeg path from environment
+if (process.env.FFMPEG_PATH && !process.env.PATH?.includes(process.env.FFMPEG_PATH)) {
+  process.env.PATH = `${process.env.FFMPEG_PATH};${process.env.PATH}`;
 }
 
 /**
