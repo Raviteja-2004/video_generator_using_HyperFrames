@@ -141,6 +141,45 @@ async function runSuite() {
   }
 
   // -------------------------------------------------------------
+  // TEST 2B: METADATA LEAKAGE REGRESSION TEST (No HOOK/OVERVIEW)
+  // -------------------------------------------------------------
+  console.log("\n--- TEST 2B: No Internal Metadata Leakage in Compositions ---");
+  try {
+    const pulsePlan = {
+      schemaVersion: "1.1.0",
+      title: "PulseFit Launch",
+      aspectRatio: "9:16",
+      totalDuration: 6,
+      palette: { background: "#09090b", surface: "#18181b", primary: "#8b5cf6", text: "#ffffff", subtext: "#a1a1aa" },
+      scenes: [
+        { id: "s1", template: "title", purpose: "hook", visualEmphasis: "high", textDensity: "low", duration: 3, motionIntent: "scale-up", heading: "PulseFit", subheading: "Your Ultimate Companion" },
+        { id: "s2", template: "image-hero", purpose: "feature-presentation", visualEmphasis: "high", textDensity: "low", duration: 3, motionIntent: "counter-zoom", heading: "Track Heartbeat", imageSlot: { prompt: "Sleek dashboard", style: "neon" } }
+      ]
+    };
+
+    const comp = composeProject(pulsePlan);
+    const forbiddenPatterns = [
+      ">HOOK<", ">hook<", ">Hook<",
+      ">OVERVIEW<", ">Overview<",
+      ">FEATURE-PRESENTATION<", ">feature-presentation<",
+      ">CALL-TO-ACTION<", ">call-to-action<",
+      ">ANNOUNCEMENT<", ">announcement<",
+      ">SOCIAL-PROOF<", ">social-proof<"
+    ];
+
+    const violations = forbiddenPatterns.filter(p => comp.html.includes(p));
+    recordTest(
+      "no internal metadata leakage (no HOOK/OVERVIEW badge)",
+      violations.length === 0,
+      violations.length === 0
+        ? "Verified zero metadata leakage: internal planning labels (hook, overview, etc.) are NOT rendered into HTML"
+        : `Violations found: ${violations.join(", ")}`
+    );
+  } catch (err) {
+    recordTest("no internal metadata leakage (no HOOK/OVERVIEW badge)", false, err.message);
+  }
+
+  // -------------------------------------------------------------
   // TEST 3: E2E PIPELINE - BRIEF 1 (CodeStream Widescreen 16:9)
   // -------------------------------------------------------------
   console.log("\n--- TEST 3: E2E Pipeline on Brief 1 (Widescreen 16:9) ---");

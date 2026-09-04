@@ -16,7 +16,7 @@ function recordTest(name, passed, detail) {
 
 async function runHyperframesCheck() {
   try {
-    const { stdout, stderr } = await execAsync("npx hyperframes check . --json", {
+    const { stdout, stderr } = await execAsync("npx hyperframes check . --json --timeout=30000", {
       cwd: process.cwd(),
       timeout: 60000
     });
@@ -66,8 +66,45 @@ async function runSuite() {
     const composed = composeProject(allTemplatesPlan);
     const hasAll = ["title", "feature-callout", "stat-highlight", "image-hero", "cta"].every(t => composed.html.includes(t));
     recordTest("five core templates coverage", hasAll, "Composed project containing all 5 templates (title, feature-callout, stat-highlight, image-hero, cta)");
+
+    // 1b. No Internal Metadata Leakage Regression Test
+    const metadataTestPlan = {
+      title: "Metadata Leakage Test",
+      aspectRatio: "16:9",
+      totalDuration: 15,
+      palette: { background: "#09090b", surface: "#18181b", primary: "#8b5cf6", text: "#ffffff", subtext: "#a1a1aa" },
+      scenes: [
+        { id: "s1", template: "title", purpose: "hook", visualEmphasis: "high", textDensity: "low", duration: 3, motionIntent: "scale-up", heading: "PulseFit", subheading: "Your Ultimate Companion" },
+        { id: "s2", template: "feature-callout", purpose: "feature-presentation", visualEmphasis: "medium", textDensity: "medium", duration: 3, motionIntent: "stagger-reveal", heading: "Features", features: ["F1", "F2"] },
+        { id: "s3", template: "stat-highlight", purpose: "social-proof", visualEmphasis: "high", textDensity: "low", duration: 3, motionIntent: "counter-zoom", heading: "Stats", stat: { value: "10x", label: "Velocity" } },
+        { id: "s4", template: "image-hero", purpose: "announcement", visualEmphasis: "high", textDensity: "low", duration: 3, motionIntent: "fade-in", heading: "Hero", imageSlot: { prompt: "Test prompt", style: "dark" } },
+        { id: "s5", template: "cta", purpose: "call-to-action", visualEmphasis: "high", textDensity: "low", duration: 3, motionIntent: "slide-up", heading: "Action", ctaText: "Join", ctaSubtext: "Free" }
+      ]
+    };
+
+    const metaComposed = composeProject(metadataTestPlan);
+    const forbiddenLabels = [
+      ">HOOK<", ">hook<", ">Hook<",
+      ">FEATURE PRESENTATION<", ">feature-presentation<",
+      ">CALL TO ACTION<", ">call-to-action<",
+      ">ANNOUNCEMENT<", ">announcement<",
+      ">SOCIAL PROOF<", ">social-proof<",
+      ">OVERVIEW<", ">Overview<",
+      ">HIGH<", ">high<", ">MEDIUM<", ">medium<", ">LOW<", ">low<",
+      ">SCALE-UP<", ">scale-up<", ">STAGGER-REVEAL<", ">stagger-reveal<", ">COUNTER-ZOOM<", ">counter-zoom<"
+    ];
+
+    const leakedLabels = forbiddenLabels.filter(lbl => metaComposed.html.includes(lbl));
+    recordTest(
+      "no internal metadata leakage in rendered HTML",
+      leakedLabels.length === 0,
+      leakedLabels.length === 0
+        ? "Verified zero metadata leakage (no purpose, visualEmphasis, textDensity, motionIntent, or Overview labels rendered)"
+        : `Leaked metadata found: ${leakedLabels.join(", ")}`
+    );
   } catch (err) {
     recordTest("five core templates coverage", false, err.message);
+    recordTest("no internal metadata leakage in rendered HTML", false, err.message);
   }
 
   // 2. Determinism Invariant (Same plan twice produces exact byte-for-byte HTML)

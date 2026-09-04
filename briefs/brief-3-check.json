@@ -63,8 +63,8 @@
       6.5,
       8.5
     ],
-    "checked": 15,
-    "passed": 15
+    "checked": 13,
+    "passed": 13
   },
   "snapshots": {
     "enabled": false,

@@ -1,5 +1,5 @@
 {
-  "ok": true,
+  "ok": false,
   "strict": false,
   "lint": {
     "ok": true,
@@ -10,11 +10,27 @@
     "filesScanned": 1
   },
   "runtime": {
-    "ok": true,
-    "errorCount": 0,
+    "ok": false,
+    "errorCount": 1,
     "warningCount": 0,
     "infoCount": 0,
-    "findings": []
+    "findings": [
+      {
+        "code": "check_runtime_failure",
+        "severity": "error",
+        "message": "Navigation timeout of 10000 ms exceeded",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      }
+    ]
   },
   "layout": {
     "ok": true,
@@ -22,18 +38,8 @@
     "warningCount": 0,
     "infoCount": 0,
     "findings": [],
-    "duration": 12,
-    "samples": [
-      0.667,
-      2,
-      3.333,
-      4.667,
-      6,
-      7.333,
-      8.667,
-      10,
-      11.333
-    ],
+    "duration": 0,
+    "samples": [],
     "transitionSamples": [],
     "transitionSamplesDropped": 0,
     "tolerance": 2,
@@ -56,15 +62,9 @@
     "infoCount": 0,
     "findings": [],
     "enabled": true,
-    "samples": [
-      0.667,
-      3.333,
-      6,
-      8.667,
-      11.333
-    ],
-    "checked": 11,
-    "passed": 11
+    "samples": [],
+    "checked": 0,
+    "passed": 0
   },
   "snapshots": {
     "enabled": false,
